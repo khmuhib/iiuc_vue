@@ -1,8 +1,8 @@
 <template>
-  <nav>
+  <!-- <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
-  </nav>
+  </nav> -->
   <router-view/>
 </template>
 
@@ -27,4 +27,21 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
 </style>
