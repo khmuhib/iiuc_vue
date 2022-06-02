@@ -11,7 +11,6 @@
     <AboutCampusComponent></AboutCampusComponent>
     <TeamMemberComponent></TeamMemberComponent>
 
-    <CallToAction></CallToAction>
     <FooterComponent></FooterComponent>
   </div>
 </template>
@@ -23,7 +22,6 @@
 
 // @ is an alias to /src
 import FooterComponent from "@/components/Footer/FooterComponent.vue";
-import CallToAction from "@/components/Footer/CallToAction.vue";
 import NoticeComponent from "@/components/Home/NoticeComponent.vue";
 import NewsArchiveComponent from "@/components/Home/NewsArchiveComponent.vue";
 import AdmissionGuideComponent from "@/components/Home/AdmissionGuideComponent.vue";
@@ -36,7 +34,6 @@ export default {
   name: "HomeView",
   components: {
     FooterComponent,
-    CallToAction,
     NoticeComponent,
     NewsArchiveComponent,
     AdmissionGuideComponent,

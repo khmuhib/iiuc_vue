@@ -5,7 +5,6 @@ import store from './store'
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap"
 
-import carousel from 'vue-owl-carousel'
 
 // import { library } from "@fortawesome/fontawesome-svg-core";
 // import { faPhone } from "@fortawesome/free-solid-svg-icons";
@@ -17,8 +16,5 @@ import { far } from '@fortawesome/free-regular-svg-icons';
 library.add(fas, far, fab)
 dom.watch();
 
-export default {
-    components: { carousel },
-}
 
 createApp(App).use(store).use(router).component("font-awesome-icon", FontAwesomeIcon).mount('#app')
