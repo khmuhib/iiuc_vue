@@ -1,6 +1,6 @@
 <template>
       <!-- New Archive Start -->
-    <div class="container-fluid news_archive_main">
+    <div class="container-fluid news_archive_main mt-3">
         <div class="container">
             <div class="row py-2">
                 <div class="col-md-2 mt-2 col-12">

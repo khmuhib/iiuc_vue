@@ -162,10 +162,27 @@ export default {
     margin: auto;
 }
 
+.footer_top_right svg {
+    margin: 0px 5px;
+}
+
+.footer_main_section .nav .nav-item a {
+    text-align: left;
+}
+
+.footer_main_section h5 {
+    text-align: left;
+}
+
 .footer_top_left_text {
     width: 75%;
     float: left;
     padding: 8px 0px;
+    text-align: left;
+}
+
+.footer_top_left_text svg {
+    margin-right: 5px!important;
 }
 
 .footer_top_left_text h6 {

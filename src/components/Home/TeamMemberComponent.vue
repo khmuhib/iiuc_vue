@@ -1,8 +1,8 @@
 <template>
       <!-- Team Member Section Start -->
 
-    <div class="superintent-ifo team_member_main py-3">
-        <h6 class="text-center title">IIUC’s Superintendence</h6>
+    <div class="superintent-ifo team_member_main py-5">
+        <h4 class="text-center title my-5">IIUC’s Superintendence</h4>
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6">

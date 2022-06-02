@@ -1,10 +1,6 @@
 <template>
   <div class="home">
     <HeaderComponent></HeaderComponent>
-    <!-- <HeaderTopComponent></HeaderTopComponent>
-    <HeaderBottomComponent></HeaderBottomComponent>
-    <HeaderMainMenuComponent></HeaderMainMenuComponent>
-    <SliderComponent></SliderComponent> -->
     <NoticeComponent></NoticeComponent>
     <NewsArchiveComponent></NewsArchiveComponent>
     <AdmissionGuideComponent></AdmissionGuideComponent>
@@ -17,10 +13,7 @@
 
 <script>
 
-//import '../assets/js/jquery.min.js'
-//import '../assets/js/owl.carousel.min.js';
 
-// @ is an alias to /src
 import FooterComponent from "@/components/Footer/FooterComponent.vue";
 import NoticeComponent from "@/components/Home/NoticeComponent.vue";
 import NewsArchiveComponent from "@/components/Home/NewsArchiveComponent.vue";
@@ -45,6 +38,6 @@ export default {
 </script>
 
 <style scoped>
-/*@import "../assets/css/owl.carousel.min.css";
-@import "../assets/css/owl.theme.default.min.css";*/
+
+
 </style>

@@ -308,6 +308,7 @@ export default {
     box-shadow: 0px 0px 10px 0px #ccc;
     overflow: hidden;
     margin: 10px 0px;
+    text-align: left;
 }
 
 .card_main:nth-child(2) .card_date {
@@ -375,6 +376,12 @@ export default {
     background-color: #872683;
     padding: 5px 10px;
     border-radius: 2px;
+    text-decoration: none;
+
+}
+
+.notice_buttons a:hover {
+    color: #FFFFFF;
 }
 
 .card_right {
