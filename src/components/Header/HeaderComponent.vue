@@ -5,35 +5,17 @@
             <div class="row">
                 <div class="col-md-5 col-12 p-0">
                     <marquee class="header_top_menu_marquee">
-                        <span><i class="fa fa-grav" aria-hidden="true"></i> Admission Open for
-                            MBA and MBM, Summer 2022</span>
-                        <span><i class="fa fa-grav" aria-hidden="true"></i> Admission Open for
-                            MBA and MBM, Summer 2022</span>
+                        <span v-for="(item, i) in marquee" :key="i"><i :class="item.icon" aria-hidden="true"></i>
+                        {{item.title}}
+                        </span>
                     </marquee>
                 </div>
                 <div class="col-md-7 col-12 p-0">
                     <div class="header_top_menu_right">
                         <ul>
-                            <li>
-                                <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Login</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Faculties</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Alumni</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Webmail</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>G Suite</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Career</a>
-                            </li>
-                            <li>
-                                <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Transport</a>
+                            <li v-for="(item, i) in header_top" :key="i">
+                                <router-link to="/"><i :class=item.icon aria-hidden="true"></i>{{ item.title }}
+                                </router-link>
                             </li>
                         </ul>
                     </div>
@@ -49,7 +31,7 @@
             <div class="row py-2">
                 <div class="col-md-6 col-12 p-0">
                     <div class="header_bottom_left">
-                        <img src="./../../assets/images/logo.png" alt="" class="img-fluid" />
+                        <img :src="logo" alt="" class="img-fluid" />
                     </div>
                 </div>
                 <div class="col-md-6 col-12 p-0">
@@ -83,381 +65,28 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-center" id="main_nav">
                         <ul class="navbar-nav justify-center">
-                            <li class="nav-item active">
+                            <!-- <li class="nav-item active">
                                 <router-link to="/" href="#" class="nav-link">Home</router-link>
-                                <!-- <a class="nav-link" href="#">Home </a> -->
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                                    About IIUC
+                            </li> -->
+                            <li class="nav-item dropdown" v-for="(item, i) in main_menu" :key="i">
+                                <a :class="item.sub_menu ? 'nav-link dropdown-toggle' : 'nav-link'" href="#"
+                                    data-bs-toggle="dropdown">
+                                    {{ item.title }}
                                 </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <router-link to="/iiuc-history" href="#" class="dropdown-item">IIUC History</router-link>
-                                        <!-- <a class="dropdown-item" href="#"> IIUC History </a> -->
-                                    </li>
-                                    <li>
-                                        <router-link class="dropdown-item" href="/" to="/board-of-trustees"> Board of Trustees </router-link>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#"> Action and Fomer IIUC VC & Pro-VC</a>
-                                    </li>
-                                    <li>
+
+
+                                <ul class="dropdown-menu" v-if="item.sub_menu">
+                                    <li v-for="(sub_item, j) in item.sub_menu" :key="j">
                                         <a class="dropdown-item" href="#">
-                                            Message &raquo;
+                                            {{ sub_item.title }} <span v-if="sub_item.mega_sub_menu">&raquo;</span>
                                         </a>
-                                        <ul class="submenu dropdown-menu">
-                                            <li>
-                                                <a class="dropdown-item" href="#">Vice-Chancellor</a>
+                                        <ul class="submenu dropdown-menu" v-if="sub_item.mega_sub_menu">
+                                            <li v-for="(mega_sub_menu, k) in sub_item.mega_sub_menu" :key="k">
+                                                <a class="dropdown-item" href="#">{{ mega_sub_menu.title }}</a>
                                             </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Pro Vice-Chancellor</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Chairman, BoT</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Treasurer</a>
-                                            </li>
-                                            <!-- <li>
-                                                <a class="dropdown-item" href="#">Submenu item 3 &raquo;
-                                                </a>
-                                                <ul class="submenu dropdown-menu">
-                                                    <li>
-                                                        <a class="dropdown-item" href="#">Multi level 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item" href="#">Multi level 2</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Submenu item 4</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Submenu item 5</a>
-                                            </li> -->
                                         </ul>
                                     </li>
 
-                                    <li>
-                                        <a class="dropdown-item" href="#"> Photo Gallery </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#"> Mission and Vision </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            IIUC Infra-Structure &raquo;
-                                        </a>
-                                        <ul class="submenu dropdown-menu">
-                                            <li>
-                                                <a class="dropdown-item" href="#">Board of Trustees</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">It Facilites</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Transport Facilites</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Central Mosque</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Medical Center</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Auditorium</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Student Hall</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Sports and Recreation</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Library Automation</a>
-                                            </li>
-                                            <!-- <li>
-                                                <a class="dropdown-item" href="#">Submenu item 3 &raquo;
-                                                </a>
-                                                <ul class="submenu dropdown-menu">
-                                                    <li>
-                                                        <a class="dropdown-item" href="#">Multi level 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item" href="#">Multi level 2</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Submenu item 4</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Submenu item 5</a>
-                                            </li> -->
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#"> Location Map </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#"> IIUC Ranking </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#"> Foreign Collaboration </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#"> Contact Us </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                                    Administartion
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a class="dropdown-item" href="#"> IIUC History </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#"> Board of Trustees </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#"> Action and Fomer IIUC VC & Pro-VC</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            Message &raquo;
-                                        </a>
-                                        <ul class="submenu dropdown-menu">
-                                            <li>
-                                                <a class="dropdown-item" href="#">Vice-Chancellor</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Pro Vice-Chancellor</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Chairman, BoT</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Treasurer</a>
-                                            </li>
-                                            <!-- <li>
-                                                <a class="dropdown-item" href="#">Submenu item 3 &raquo;
-                                                </a>
-                                                <ul class="submenu dropdown-menu">
-                                                    <li>
-                                                        <a class="dropdown-item" href="#">Multi level 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item" href="#">Multi level 2</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Submenu item 4</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Submenu item 5</a>
-                                            </li> -->
-                                        </ul>
-                                    </li>
-
-                                    <li>
-                                        <a class="dropdown-item" href="#"> Photo Gallery </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#"> Mission and Vision </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            IIUC Infra-Structure &raquo;
-                                        </a>
-                                        <ul class="submenu dropdown-menu">
-                                            <li>
-                                                <a class="dropdown-item" href="#">Board of Trustees</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">It Facilites</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Transport Facilites</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Central Mosque</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Medical Center</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Auditorium</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Student Hall</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Sports and Recreation</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Library Automation</a>
-                                            </li>
-                                            <!-- <li>
-                                                <a class="dropdown-item" href="#">Submenu item 3 &raquo;
-                                                </a>
-                                                <ul class="submenu dropdown-menu">
-                                                    <li>
-                                                        <a class="dropdown-item" href="#">Multi level 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item" href="#">Multi level 2</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Submenu item 4</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Submenu item 5</a>
-                                            </li> -->
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#"> Location Map </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#"> IIUC Ranking </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#"> Foreign Collaboration </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#"> Contact Us </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                                    Admission
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a class="dropdown-item" href="#"> IIUC History </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#"> Board of Trustees </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#"> Action and Fomer IIUC VC & Pro-VC</a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            Message &raquo;
-                                        </a>
-                                        <ul class="submenu dropdown-menu">
-                                            <li>
-                                                <a class="dropdown-item" href="#">Vice-Chancellor</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Pro Vice-Chancellor</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Chairman, BoT</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Treasurer</a>
-                                            </li>
-                                            <!-- <li>
-                                                <a class="dropdown-item" href="#">Submenu item 3 &raquo;
-                                                </a>
-                                                <ul class="submenu dropdown-menu">
-                                                    <li>
-                                                        <a class="dropdown-item" href="#">Multi level 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item" href="#">Multi level 2</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Submenu item 4</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Submenu item 5</a>
-                                            </li> -->
-                                        </ul>
-                                    </li>
-
-                                    <li>
-                                        <a class="dropdown-item" href="#"> Photo Gallery </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#"> Mission and Vision </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            IIUC Infra-Structure &raquo;
-                                        </a>
-                                        <ul class="submenu dropdown-menu">
-                                            <li>
-                                                <a class="dropdown-item" href="#">Board of Trustees</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">It Facilites</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Transport Facilites</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Central Mosque</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Medical Center</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Auditorium</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Student Hall</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Sports and Recreation</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Library Automation</a>
-                                            </li>
-                                            <!-- <li>
-                                                <a class="dropdown-item" href="#">Submenu item 3 &raquo;
-                                                </a>
-                                                <ul class="submenu dropdown-menu">
-                                                    <li>
-                                                        <a class="dropdown-item" href="#">Multi level 1</a>
-                                                    </li>
-                                                    <li>
-                                                        <a class="dropdown-item" href="#">Multi level 2</a>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Submenu item 4</a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">Submenu item 5</a>
-                                            </li> -->
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#"> Location Map </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#"> IIUC Ranking </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#"> Foreign Collaboration </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#"> Contact Us </a>
-                                    </li>
                                 </ul>
                             </li>
                         </ul>
@@ -501,14 +130,6 @@
                         <img src="./../../assets/images/S4.jpg" class="d-block w-100" alt="..." />
                     </div>
                 </div>
-                <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button> -->
             </div>
         </div>
     </div>
@@ -517,8 +138,132 @@
 </template>
 
 <script>
+import logo from "./../../assets/images/logo.png"
+import s1 from "./../../assets/images/S1.jpg"
+import s2 from "./../../assets/images/S2.jpg"
+import s3 from "./../../assets/images/S3.jpg"
+import s4 from "./../../assets/images/S4.jpg"
+import s5 from "./../../assets/images/S5.jpg"
+
 export default {
     name: "HeaderComponent",
+    slider: [s1 , s2, s3 , s4 , s5],
+    data() {
+        return {
+            logo: logo,
+            header_top: [
+                {
+                    title: 'Title1',
+                    link: '#',
+                    icon: 'fa fa-home'
+                },
+                {
+                    title: 'Title2',
+                    link: '#',
+                    icon: 'fa fa-home'
+                },
+                {
+                    title: 'Title3',
+                    link: '#',
+                    icon: 'fa fa-home'
+                },
+                {
+                    title: 'Title4',
+                    link: '#',
+                    icon: 'fa fa-home'
+                },
+            ],
+            main_menu: [
+                {
+                    title: 'Menu01',
+                    link: '#'
+                },
+                {
+                    title: 'Menu02',
+                    link: '#'
+                },
+                {
+                    title: 'Menu02',
+                    link: '#'
+                },
+                {
+                    title: 'Menu02',
+                    link: '#'
+                },
+                {
+                    title: 'Menu02',
+                    link: '#'
+                },
+                {
+                    title: 'Menu03',
+                    link: '#',
+                    sub_menu: [
+                        {
+                            title: 'Sub01',
+                            link: '#'
+                        },
+                        {
+                            title: 'Sub02',
+                            link: '#'
+                        },
+                        {
+                            title: 'Sub03',
+                            link: '#',
+                            mega_sub_menu: [
+                                {
+                                    title: 'Mega01',
+                                    link: '#'
+                                },
+                                {
+                                    title: 'Mega02',
+                                    link: '#'
+                                },
+                                {
+                                    title: 'Mega03',
+                                    link: '#'
+                                },
+                                {
+                                    title: 'Mega04',
+                                    link: '#'
+                                },
+                            ],
+                        },
+                        {
+                            title: 'Sub04',
+                            link: '#'
+                        },
+                    ]
+                },
+                {
+                    title: 'Menu04',
+                    link: '#'
+                },
+            ],
+
+            marquee: [
+                {
+                    title: 'Marquee1',
+                    icon: 'fa fa-home',
+                },
+                {
+                    title: 'Marquee2',
+                    icon: 'fa fa-home',
+                },
+                {
+                    title: 'Marquee3',
+                    icon: 'fa fa-home',
+                },
+                {
+                    title: 'Marquee4',
+                    icon: 'fa fa-home',
+                },
+                {
+                    title: 'Marquee5',
+                    icon: 'fa fa-home',
+                },
+            ],
+        };
+    },
 };
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -558,6 +303,11 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 <style scoped>
+
+marquee span {
+    margin-left: 15px;
+}
+
 /* Header Top Start */
 
 .header_top_menu_main {
