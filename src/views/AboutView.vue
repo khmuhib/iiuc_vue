@@ -1,6 +1,7 @@
 <template>
   <button class="btn btn-danger">adsa</button>
   <carousel :slides="slides" :interval="3000" controls indicators></carousel>
+  <h1>dfjklaskldkl</h1>
 </template>
 
 <script>
