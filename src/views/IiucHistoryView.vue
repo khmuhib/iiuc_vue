@@ -1,5 +1,6 @@
 <template>
   <HeaderComponent></HeaderComponent>
+  <SliderComponent></SliderComponent>
   <PaginationComponent></PaginationComponent>
   <IiucHistoryCompornent></IiucHistoryCompornent>
   <FooterComponent></FooterComponent>
@@ -10,6 +11,7 @@ import FooterComponent from "@/components/Footer/FooterComponent.vue";
 import HeaderComponent from "@/components/Header/HeaderComponent.vue";
 import IiucHistoryCompornent from "@/components/IiucHistoryCompornent.vue";
 import PaginationComponent from "@/components/PaginationComponent.vue";
+import SliderComponent from "@/components/SliderComponent.vue";
 
 export default {
   name: "IiucHistoryView",
@@ -17,7 +19,8 @@ export default {
     FooterComponent,
     HeaderComponent,
     IiucHistoryCompornent,
-    PaginationComponent
+    PaginationComponent,
+    SliderComponent
 }
 };
 </script>

@@ -6,7 +6,7 @@
                 <div class="col-md-5 col-12 p-0">
                     <marquee class="header_top_menu_marquee">
                         <span v-for="(item, i) in marquee" :key="i"><i :class="item.icon" aria-hidden="true"></i>
-                        {{item.title}}
+                            {{ item.title }}
                         </span>
                     </marquee>
                 </div>
@@ -69,20 +69,19 @@
                                 <router-link to="/" href="#" class="nav-link">Home</router-link>
                             </li> -->
                             <li class="nav-item dropdown" v-for="(item, i) in main_menu" :key="i">
-                                <a :class="item.sub_menu ? 'nav-link dropdown-toggle' : 'nav-link'" href="#"
-                                    data-bs-toggle="dropdown">
+                                <router-link :to=item.link :class="item.sub_menu ? 'nav-link dropdown-toggle' : 'nav-link'" data-bs-toggle="dropdown">
                                     {{ item.title }}
-                                </a>
+                                </router-link>
 
 
                                 <ul class="dropdown-menu" v-if="item.sub_menu">
                                     <li v-for="(sub_item, j) in item.sub_menu" :key="j">
-                                        <a class="dropdown-item" href="#">
+                                        <router-link :to=sub_item.link class="dropdown-item">
                                             {{ sub_item.title }} <span v-if="sub_item.mega_sub_menu">&raquo;</span>
-                                        </a>
+                                        </router-link>
                                         <ul class="submenu dropdown-menu" v-if="sub_item.mega_sub_menu">
                                             <li v-for="(mega_sub_menu, k) in sub_item.mega_sub_menu" :key="k">
-                                                <a class="dropdown-item" href="#">{{ mega_sub_menu.title }}</a>
+                                                <router-link :to=mega_sub_menu.link class="dropdown-item">{{ mega_sub_menu.title }}</router-link>
                                             </li>
                                         </ul>
                                     </li>
@@ -101,55 +100,17 @@
     </div>
     <!-- Main Menu End -->
 
-    <!-- Slider Section Start -->
 
-    <div class="container-fluid my-5">
-        <div class="container">
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                        class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"
-                        aria-label="Slide 4"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="./../../assets/images/S1.jpg" class="d-block w-100" alt="..." />
-                    </div>
-                    <div class="carousel-item">
-                        <img src="./../../assets/images/S2.jpg" class="d-block w-100" alt="..." />
-                    </div>
-                    <div class="carousel-item">
-                        <img src="./../../assets/images/S3.jpg" class="d-block w-100" alt="..." />
-                    </div>
-                    <div class="carousel-item">
-                        <img src="./../../assets/images/S4.jpg" class="d-block w-100" alt="..." />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Slider Section End -->
 </template>
 
 <script>
 import logo from "./../../assets/images/logo.png"
-import s1 from "./../../assets/images/S1.jpg"
-import s2 from "./../../assets/images/S2.jpg"
-import s3 from "./../../assets/images/S3.jpg"
-import s4 from "./../../assets/images/S4.jpg"
-import s5 from "./../../assets/images/S5.jpg"
 
 export default {
     name: "HeaderComponent",
-    slider: [s1 , s2, s3 , s4 , s5],
     data() {
         return {
+
             logo: logo,
             header_top: [
                 {
@@ -175,12 +136,48 @@ export default {
             ],
             main_menu: [
                 {
-                    title: 'Menu01',
-                    link: '#'
+                    title: 'Home',
+                    link: '/'
                 },
                 {
-                    title: 'Menu02',
-                    link: '#'
+                    title: 'About IIUC',
+                    link: '#',
+                    sub_menu: [
+                        {
+                            title: 'IIUC History',
+                            link: '/iiuc-history',
+                        },
+                        {
+                            title: 'Board of Trustees',
+                            link: '/board-of-trustees',
+                        },
+                        {
+                            title: 'Acting and fomer IIUC VC & Pro-VC',
+                            link: '/about-former-view',
+                        },
+                        {
+                            title: 'Message',
+                            link: '#',
+                            mega_sub_menu: [
+                                {
+                                    title: 'Vice-Chancellor',
+                                    link: '/about-vc-view',
+                                },
+                                {
+                                    title: 'Pro Vice-Chancellor',
+                                    link: '/about-pro-vc-view',
+                                },
+                                {
+                                    title: 'Chairman BOT',
+                                    link: '/about-chairman-view',
+                                },
+                                {
+                                    title: 'Treasurer',
+                                    link: '/about-treasurer-view',
+                                },
+                            ]
+                        },
+                    ]
                 },
                 {
                     title: 'Menu02',
@@ -303,7 +300,6 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 <style scoped>
-
 marquee span {
     margin-left: 15px;
 }
@@ -488,37 +484,15 @@ marquee span {
         margin-right: 0.7rem;
         margin-bottom: 0.5rem;
     }
+
+    .navbar-dark .navbar-toggler {
+        background-color: #31AED3;
+    }
 }
 
 /* ============ small devices .end// ============ */
 
 /* Main Menu End */
 
-/* Slider Section Start */
 
-.carousel-inner img {
-    height: 542px;
-}
-
-.carousel-indicators button {
-    height: 15px !important;
-    width: 15px !important;
-    border-radius: 50%;
-}
-
-@media only screen and (max-width: 600px) {
-    .carousel-inner img {
-        height: 300px;
-    }
-
-    .dropdown-menu>li:hover {
-        background-color: #f1f1f1;
-    }
-
-    .dropdown-menu>li:hover>.submenu {
-        display: block;
-    }
-}
-
-/* Slider Section End */
 </style>

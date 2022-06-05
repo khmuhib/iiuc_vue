@@ -1,5 +1,5 @@
 <template>
-      <!-- Notice Part Start -->
+    <!-- Notice Part Start -->
 
     <div class="container-fluid">
         <div class="container">
@@ -7,169 +7,68 @@
                 <div class="col-md-6 notice_section_left">
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">General Notice</button>
+                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                                aria-selected="true">General Notice</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Press Release</button>
+                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                                aria-selected="false">Press Release</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Tenders</button>
+                            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                                data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                                aria-selected="false">Tenders</button>
                         </li>
                     </ul>
                     <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                            <div class="card_main">
+                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                            aria-labelledby="pills-home-tab">
+                            <div v-for="(notice_card_item, index) in general_notice_card" :key="index"
+                                class="card_main">
                                 <div class="card_left">
                                     <div class="card_date">
-                                        <span>14</span>
-                                        <span>May</span>
-                                        <span>2022</span>
+                                        <span>{{ notice_card_item.day }}</span>
+                                        <span>{{ notice_card_item.month }}</span>
+                                        <span>{{ notice_card_item.year }}</span>
                                     </div>
                                 </div>
                                 <div class="card_right">
-                                    <h5>বৌদ্ধ পূর্ণিমা উপলক্ষে ছুটির বিজ্ঞপ্তি</h5>
-                                </div>
-                            </div>
-
-                            <div class="card_main">
-                                <div class="card_left">
-                                    <div class="card_date">
-                                        <span>14</span>
-                                        <span>May</span>
-                                        <span>2022</span>
-                                    </div>
-                                </div>
-                                <div class="card_right">
-                                    <h5>UGC has approved the program of MA in Science of Hadith and Islamic Studies
-                                    </h5>
-                                </div>
-                            </div>
-                            <div class="card_main">
-                                <div class="card_left">
-                                    <div class="card_date">
-                                        <span>14</span>
-                                        <span>May</span>
-                                        <span>2022</span>
-                                    </div>
-                                </div>
-                                <div class="card_right">
-                                    <h5>Final installment of the fees of Spring-2022 (1st to 3rd) semesters and Autumn-2021 (4th to Onward) semesters</h5>
-                                </div>
-                            </div>
-
-                            <div class="card_main">
-                                <div class="card_left">
-                                    <div class="card_date">
-                                        <span>14</span>
-                                        <span>May</span>
-                                        <span>2022</span>
-                                    </div>
-                                </div>
-                                <div class="card_right">
-                                    <h5>TER Survey and Course Evaluation Report (CER), Spring-2022 (2nd to 3rd) and Autumn-2021 (4th to 8th) of Undergraduate Programs</h5>
-                                </div>
-                            </div>
-
-                            <div class="card_main">
-                                <div class="card_left">
-                                    <div class="card_date">
-                                        <span>14</span>
-                                        <span>May</span>
-                                        <span>2022</span>
-                                    </div>
-                                </div>
-                                <div class="card_right">
-                                    <h5>Course Registration of Autumn-2021 of MEB and Spring-2022 Spring of LLM (Pre and Final) </h5>
-                                </div>
-                            </div>
-
-                            <div class="card_main">
-                                <div class="card_left">
-                                    <div class="card_date">
-                                        <span>14</span>
-                                        <span>May</span>
-                                        <span>2022</span>
-                                    </div>
-                                </div>
-                                <div class="card_right">
-                                    <h5>Class Schedule of undergraduate Programs during Ramadan-2022</h5>
+                                    <h5>{{ notice_card_item.title }}</h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                            aria-labelledby="pills-profile-tab">
 
-                            <div class="card_main">
+                            <div v-for="(press_card_item, index) in press_release" :key="index"
+                                class="card_main">
                                 <div class="card_left">
                                     <div class="card_date">
-                                        <span>14</span>
-                                        <span>May</span>
-                                        <span>2022</span>
+                                        <span>{{ press_card_item.day }}</span>
+                                        <span>{{ press_card_item.month }}</span>
+                                        <span>{{ press_card_item.year }}</span>
                                     </div>
                                 </div>
                                 <div class="card_right">
-                                    <h5>Press Release 01</h5>
-                                </div>
-                            </div>
-                            <div class="card_main">
-                                <div class="card_left">
-                                    <div class="card_date">
-                                        <span>14</span>
-                                        <span>May</span>
-                                        <span>2022</span>
-                                    </div>
-                                </div>
-                                <div class="card_right">
-                                    <h5>Press Release 01</h5>
-                                </div>
-                            </div>
-                            <div class="card_main">
-                                <div class="card_left">
-                                    <div class="card_date">
-                                        <span>14</span>
-                                        <span>May</span>
-                                        <span>2022</span>
-                                    </div>
-                                </div>
-                                <div class="card_right">
-                                    <h5>Press Release 01</h5>
+                                    <h5>{{ press_card_item.title }}</h5>
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                            <div class="card_main">
+                        <div class="tab-pane fade" id="pills-contact" role="tabpanel"
+                            aria-labelledby="pills-contact-tab">
+                            <div v-for="(tender_card_item, index) in tender" :key="index"
+                                class="card_main">
                                 <div class="card_left">
                                     <div class="card_date">
-                                        <span>14</span>
-                                        <span>May</span>
-                                        <span>2022</span>
+                                        <span>{{ tender_card_item.day }}</span>
+                                        <span>{{ tender_card_item.month }}</span>
+                                        <span>{{ tender_card_item.year }}</span>
                                     </div>
                                 </div>
                                 <div class="card_right">
-                                    <h5>Tendar 01</h5>
-                                </div>
-                            </div>
-                            <div class="card_main">
-                                <div class="card_left">
-                                    <div class="card_date">
-                                        <span>14</span>
-                                        <span>May</span>
-                                        <span>2022</span>
-                                    </div>
-                                </div>
-                                <div class="card_right">
-                                    <h5>Tendar 01</h5>
-                                </div>
-                            </div>
-                            <div class="card_main">
-                                <div class="card_left">
-                                    <div class="card_date">
-                                        <span>14</span>
-                                        <span>May</span>
-                                        <span>2022</span>
-                                    </div>
-                                </div>
-                                <div class="card_right">
-                                    <h5>Tendar 01</h5>
+                                    <h5>{{ tender_card_item.title }}</h5>
                                 </div>
                             </div>
                         </div>
@@ -195,81 +94,15 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6 col-12">
+                        <div v-for="(recent_card_item, index) in recent_news_card" :key="index" class="col-md-6 col-12">
                             <div class="notice_section_card">
                                 <div class="notice_card_date">
-                                    <span>14</span>
-                                    <span>May</span>
-                                    <span>2022</span>
+                                    <span>{{ recent_card_item.day }}</span>
+                                    <span>{{ recent_card_item.month }}</span>
+                                    <span>{{ recent_card_item.year }}</span>
                                 </div>
                                 <div class="notice_card_title">
-                                    <h2>রমজান মুসলমানদের মধ্যে ঐক্য ও সংহতি গড়ে তুলে</h2>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-12">
-                            <div class="notice_section_card">
-                                <div class="notice_card_date">
-                                    <span>14</span>
-                                    <span>May</span>
-                                    <span>2022</span>
-                                </div>
-                                <div class="notice_card_title">
-                                    <h2>রমজান মুসলমানদের মধ্যে ঐক্য ও সংহতি গড়ে তুলে</h2>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-12">
-                            <div class="notice_section_card">
-                                <div class="notice_card_date">
-                                    <span>14</span>
-                                    <span>May</span>
-                                    <span>2022</span>
-                                </div>
-                                <div class="notice_card_title">
-                                    <h2>রমজান মুসলমানদের মধ্যে ঐক্য ও সংহতি গড়ে তুলে</h2>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-12">
-                            <div class="notice_section_card">
-                                <div class="notice_card_date">
-                                    <span>14</span>
-                                    <span>May</span>
-                                    <span>2022</span>
-                                </div>
-                                <div class="notice_card_title">
-                                    <h2>রমজান মুসলমানদের মধ্যে ঐক্য ও সংহতি গড়ে তুলে</h2>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-12">
-                            <div class="notice_section_card">
-                                <div class="notice_card_date">
-                                    <span>14</span>
-                                    <span>May</span>
-                                    <span>2022</span>
-                                </div>
-                                <div class="notice_card_title">
-                                    <h2>রমজান মুসলমানদের মধ্যে ঐক্য ও সংহতি গড়ে তুলে</h2>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 col-12">
-                            <div class="notice_section_card">
-                                <div class="notice_card_date">
-                                    <span>14</span>
-                                    <span>May</span>
-                                    <span>2022</span>
-                                </div>
-                                <div class="notice_card_title">
-                                    <h2>রমজান মুসলমানদের মধ্যে ঐক্য ও সংহতি গড়ে তুলে</h2>
+                                    <h2>{{ recent_card_item.title }}</h2>
                                 </div>
 
                             </div>
@@ -295,6 +128,127 @@
 <script>
 export default {
     name: 'NoticeComponent',
+    data() {
+        return {
+            recent_news_card: [
+                {
+                    title: 'রমজান মুসলমানদের মধ্যে ঐক্য ও সংহতি গড়ে তুলে',
+                    day: '14',
+                    month: 'May',
+                    year: '2022'
+                },
+                {
+                    title: 'রমজান মুসলমানদের মধ্যে ঐক্য ও সংহতি গড়ে তুলে',
+                    day: '14',
+                    month: 'May',
+                    year: '2022'
+                },
+                {
+                    title: 'রমজান মুসলমানদের মধ্যে ঐক্য ও সংহতি গড়ে তুলে',
+                    day: '14',
+                    month: 'May',
+                    year: '2022'
+                },
+                {
+                    title: 'রমজান মুসলমানদের মধ্যে ঐক্য ও সংহতি গড়ে তুলে',
+                    day: '14',
+                    month: 'May',
+                    year: '2022'
+                },
+                {
+                    title: 'রমজান মুসলমানদের মধ্যে ঐক্য ও সংহতি গড়ে তুলে',
+                    day: '14',
+                    month: 'May',
+                    year: '2022'
+                },
+                {
+                    title: 'রমজান মুসলমানদের মধ্যে ঐক্য ও সংহতি গড়ে তুলে',
+                    day: '14',
+                    month: 'May',
+                    year: '2022'
+                },
+            ],
+            general_notice_card: [
+                {
+                    title: 'বৌদ্ধ পূর্ণিমা উপলক্ষে ছুটির বিজ্ঞপ্তি',
+                    day: '14',
+                    month: 'May',
+                    year: '2022'
+                },
+                {
+                    title: 'বৌদ্ধ পূর্ণিমা উপলক্ষে ছুটির বিজ্ঞপ্তি',
+                    day: '14',
+                    month: 'May',
+                    year: '2022'
+                },
+                {
+                    title: 'বৌদ্ধ পূর্ণিমা উপলক্ষে ছুটির বিজ্ঞপ্তি',
+                    day: '14',
+                    month: 'May',
+                    year: '2022'
+                },
+                {
+                    title: 'বৌদ্ধ পূর্ণিমা উপলক্ষে ছুটির বিজ্ঞপ্তি',
+                    day: '14',
+                    month: 'May',
+                    year: '2022'
+                },
+                {
+                    title: 'বৌদ্ধ পূর্ণিমা উপলক্ষে ছুটির বিজ্ঞপ্তি',
+                    day: '14',
+                    month: 'May',
+                    year: '2022'
+                },
+            ],
+            press_release: [
+                {
+                    title: 'Press Release 01',
+                    day: '14',
+                    month: 'May',
+                    year: '2022'
+                },
+                {
+                    title: 'Press Release 01',
+                    day: '14',
+                    month: 'May',
+                    year: '2022'
+                },
+                {
+                    title: 'Press Release 01',
+                    day: '14',
+                    month: 'May',
+                    year: '2022'
+                },
+                {
+                    title: 'Press Release 01',
+                    day: '14',
+                    month: 'May',
+                    year: '2022'
+                },
+                {
+                    title: 'Press Release 01',
+                    day: '14',
+                    month: 'May',
+                    year: '2022'
+                },
+            ],
+            tender: [
+                {
+                    title: 'Press Release 01',
+                    day: '14',
+                    month: 'May',
+                    year: '2022'
+                },
+                {
+                    title: 'Press Release 02',
+                    day: '14',
+                    month: 'May',
+                    year: '2022'
+                },
+            ]
+        }
+    }
+
 
 }
 </script>
@@ -528,6 +482,7 @@ export default {
     .card_left {
         width: 30%;
     }
+
     .card_right {
         width: 70%;
     }
