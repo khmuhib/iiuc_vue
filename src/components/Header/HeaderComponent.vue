@@ -177,6 +177,34 @@ export default {
                                 },
                             ]
                         },
+                        {
+                            title: 'Photo Gallery',
+                            link: '/photo-gallery',
+                        },
+                        {
+                            title: 'Mission and Vision',
+                            link: '/mission-vision',
+                        },
+                        {
+                            title: 'IIUC Infra-Structure',
+                            link: '/',
+                        },
+                        {
+                            title: 'Location Map',
+                            link: '/location-map',
+                        },
+                        {
+                            title: 'IIUC Ranking',
+                            link: '/iiuc-ranking',
+                        },
+                        {
+                            title: 'Foreign Collaboration',
+                            link: '/foregin-collaboration',
+                        },
+                        {
+                            title: 'Contact Us',
+                            link: '/about-contact-us',
+                        },
                     ]
                 },
                 {
